@@ -406,6 +406,43 @@
       background: var(--accent-soft);
     }
 
+    .interactive-card {
+      transition-property: transform, background-color, border-color, box-shadow;
+      transition-duration: 180ms;
+      transition-timing-function: cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+
+    .interactive-card .cta-arrow {
+      display: inline-block;
+      transition: transform 180ms cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+
+    .interactive-card:hover,
+    .interactive-card:focus-visible {
+      transform: translateY(-2px);
+      background: #fbfdff;
+      border-color: rgba(37, 99, 235, 0.20);
+      box-shadow: 0 14px 32px rgba(15, 23, 42, 0.10);
+    }
+
+    .interactive-card:hover .cta-arrow,
+    .interactive-card:focus-visible .cta-arrow {
+      transform: translate(2px, -2px);
+    }
+
+    .interactive-card:focus-visible {
+      outline: 3px solid rgba(37, 99, 235, 0.35);
+      outline-offset: 4px;
+    }
+
+    .interactive-card:active {
+      transform: translateY(0);
+    }
+
+    .interactive-card:active .cta-arrow {
+      transform: translate(0);
+    }
+
     .project-card {
       min-height: 178px;
       display: flex;
@@ -557,6 +594,25 @@
 
       .program {
         grid-template-columns: 1fr;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .interactive-card {
+        transition-property: background-color, border-color, box-shadow;
+      }
+
+      .interactive-card .cta-arrow {
+        transition: none;
+      }
+
+      .interactive-card:hover,
+      .interactive-card:focus-visible,
+      .interactive-card:active,
+      .interactive-card:hover .cta-arrow,
+      .interactive-card:focus-visible .cta-arrow,
+      .interactive-card:active .cta-arrow {
+        transform: none;
       }
     }
   </style>
@@ -731,7 +787,12 @@
         </div>
 
         <div class="grid-2">
-          <article class="card card-solid">
+          <a
+            class="card card-solid interactive-card"
+            href="https://myaizone.lovable.app"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <div class="kicker">AI Reflection Tool</div>
 
             <h3>My AI Zone</h3>
@@ -740,17 +801,18 @@
               Understand where you are with AI — and where to begin.
             </p>
 
-            <a
-              class="text-link"
-              href="https://myaizone.lovable.app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Open My AI Zone →
-            </a>
-          </article>
+            <span class="text-link">
+              <span>Open My AI Zone</span>
+              <span class="cta-arrow" aria-hidden="true">→</span>
+            </span>
+          </a>
 
-          <article class="card card-solid">
+          <a
+            class="card card-solid interactive-card"
+            href="https://play.google.com/store/apps/details?id=com.playzpd.growpoints"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <div class="kicker">Visible Personal Habit Growth Tool</div>
 
             <h3>Growpoints</h3>
@@ -759,15 +821,11 @@
               A pet companion that turns atomic habits into visible personal growth.
             </p>
 
-            <a
-              class="text-link"
-              href="https://play.google.com/store/apps/details?id=com.playzpd.growpoints"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Open Growpoints →
-            </a>
-          </article>
+            <span class="text-link">
+              <span>Open Growpoints</span>
+              <span class="cta-arrow" aria-hidden="true">→</span>
+            </span>
+          </a>
         </div>
       </div>
     </section>
@@ -847,59 +905,89 @@
         </div>
 
         <div class="grid-3">
-          <article class="card project-card">
+          <a
+            class="card project-card interactive-card"
+            href="https://playzpdwordchallenge.lovable.app"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <div>
               <div class="tag">Language · Game</div>
               <h3>Word Challenge</h3>
               <p>A simple challenge tool for focused language practice.</p>
             </div>
-            <div class="link-row"><a class="text-link" href="https://playzpdwordchallenge.lovable.app" target="_blank" rel="noopener noreferrer">Open project ↗</a></div>
-          </article>
+            <div class="link-row"><span class="text-link"><span>Open project</span><span class="cta-arrow" aria-hidden="true">↗</span></span></div>
+          </a>
 
-          <article class="card project-card">
+          <a
+            class="card project-card interactive-card"
+            href="https://mathwhiz.ai/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <div>
               <div class="tag">Math · Tool</div>
               <h3>MathWhiz</h3>
               <p>An AI-assisted math learning example for practice and explanation.</p>
             </div>
-            <div class="link-row"><a class="text-link" href="https://mathwhiz.ai/" target="_blank" rel="noopener noreferrer">Open project ↗</a></div>
-          </article>
+            <div class="link-row"><span class="text-link"><span>Open project</span><span class="cta-arrow" aria-hidden="true">↗</span></span></div>
+          </a>
 
-          <article class="card project-card">
+          <a
+            class="card project-card interactive-card"
+            href="https://happy-korean-herd.lovable.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <div>
               <div class="tag">Language · Tool</div>
               <h3>Language Buddy</h3>
               <p>A language learning prototype shaped through vibe coding.</p>
             </div>
-            <div class="link-row"><a class="text-link" href="https://happy-korean-herd.lovable.app/" target="_blank" rel="noopener noreferrer">Open project ↗</a></div>
-          </article>
+            <div class="link-row"><span class="text-link"><span>Open project</span><span class="cta-arrow" aria-hidden="true">↗</span></span></div>
+          </a>
 
-          <article class="card project-card">
+          <a
+            class="card project-card interactive-card"
+            href="https://ibestcharacterchallenge.base44.app"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <div>
               <div class="tag">Chinese · Character Practice</div>
               <h3>Character Challenge</h3>
               <p>A quick challenge tool for Chinese character practice.</p>
             </div>
-            <div class="link-row"><a class="text-link" href="https://ibestcharacterchallenge.base44.app" target="_blank" rel="noopener noreferrer">Open project ↗</a></div>
-          </article>
+            <div class="link-row"><span class="text-link"><span>Open project</span><span class="cta-arrow" aria-hidden="true">↗</span></span></div>
+          </a>
 
-          <article class="card project-card">
+          <a
+            class="card project-card interactive-card"
+            href="https://playzpdaa.lovable.app"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <div>
               <div class="tag">AI · Experiment</div>
               <h3>AI Agent Sandbox</h3>
               <p>A first step into exploring how agent-like tools can help.</p>
             </div>
-            <div class="link-row"><a class="text-link" href="https://playzpdaa.lovable.app" target="_blank" rel="noopener noreferrer">Open project →</a></div>
-          </article>
+            <div class="link-row"><span class="text-link"><span>Open project</span><span class="cta-arrow" aria-hidden="true">↗</span></span></div>
+          </a>
 
-          <article class="card project-card">
+          <a
+            class="card project-card interactive-card"
+            href="https://focus-sparkle-39.lovable.app"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <div>
               <div class="tag">Focus · Task Practice</div>
               <h3>Focus Sparkle</h3>
               <p>A simple tool for focus and task practice.</p>
             </div>
-            <div class="link-row"><a class="text-link" href="https://focus-sparkle-39.lovable.app" target="_blank" rel="noopener noreferrer">Open project ↗</a></div>
-          </article>
+            <div class="link-row"><span class="text-link"><span>Open project</span><span class="cta-arrow" aria-hidden="true">↗</span></span></div>
+          </a>
         </div>
       </div>
     </section>
