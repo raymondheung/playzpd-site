@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Delete a Growpoints Account</title>
+  <meta name="description" content="How to delete a Growpoints Google/Firebase account identity" />
+  <meta name="robots" content="noindex, follow" />
+  <link rel="canonical" href="https://playzpd.com/legal/growpoints-account-deletion/" />
+  <link rel="icon" type="image/png" href="../../playzpd-icon.png" />
+  <link rel="apple-touch-icon" href="../../playzpd-icon.png" />
+  <style>
+    :root { --page: #faf9f5; --paper: #fff; --ink: #17202a; --muted: #65707a; --line: rgba(23,32,42,.14); --blue: #2d6cdf; --green: #2f7a4f; --max: 880px; }
+    * { box-sizing: border-box; }
+    body { margin: 0; color: var(--ink); background: var(--page); font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, Helvetica, Arial, sans-serif; line-height: 1.65; }
+    a { color: var(--blue); text-underline-offset: .18em; }
+    a:focus-visible { outline: 3px solid rgba(45,108,223,.36); outline-offset: 3px; border-radius: 4px; }
+    .wrap { width: min(var(--max), calc(100% - 40px)); margin: 0 auto; }
+    .topbar { border-bottom: 1px solid var(--line); background: rgba(255,255,255,.74); }
+    .topbar-inner { min-height: 68px; display: flex; align-items: center; justify-content: space-between; gap: 16px; color: var(--muted); font-size: 14px; font-weight: 650; }
+    .brand { color: var(--ink); }
+    .app-label { color: var(--green); }
+    main { padding: 72px 0 88px; }
+    .policy-header { padding-bottom: 28px; border-bottom: 1px solid var(--line); margin-bottom: 34px; }
+    .kicker { margin: 0 0 12px; color: #a88216; font-size: 13px; font-weight: 760; letter-spacing: .08em; text-transform: uppercase; }
+    h1 { margin: 0; max-width: 760px; font-size: clamp(38px, 7vw, 64px); line-height: 1.02; font-weight: 820; }
+    .updated { margin: 18px 0 0; color: var(--muted); }
+    section { padding: 26px 0; border-bottom: 1px solid var(--line); }
+    section:last-of-type { border-bottom: 0; }
+    h2 { margin: 0 0 12px; font-size: clamp(22px, 3vw, 30px); line-height: 1.2; }
+    p, ol { color: var(--muted); font-size: 17px; }
+    p { margin: 0 0 14px; }
+    li + li { margin-top: 8px; }
+    .action { display: inline-block; min-height: 48px; padding: 11px 18px; color: #fff; background: var(--blue); border-radius: 6px; font-weight: 700; text-decoration: none; }
+    .note { padding: 14px 16px; border-left: 4px solid var(--blue); border-radius: 0 8px 8px 0; background: rgba(45,108,223,.09); color: var(--ink); }
+    footer { padding: 30px 0 56px; color: var(--muted); border-top: 1px solid var(--line); font-size: 14px; }
+    @media (max-width: 720px) { .wrap { width: min(100% - 28px, var(--max)); } main { padding: 48px 0 64px; } .topbar-inner { align-items: flex-start; flex-direction: column; justify-content: center; padding: 14px 0; } }
+  </style>
+</head>
+<body>
+  <header class="topbar" aria-label="Policy identity">
+    <div class="wrap topbar-inner"><div class="brand">PlayZPD</div><div class="app-label">Growpoints Android app</div></div>
+  </header>
+  <main class="wrap">
+    <header class="policy-header">
+      <p class="kicker">Account and Data Deletion</p>
+      <h1>Delete a Growpoints account</h1>
+      <p class="updated">Effective date: August 9, 2026</p>
+    </header>
+    <section aria-labelledby="delete-in-app">
+      <h2 id="delete-in-app">Delete in the app</h2>
+      <ol>
+        <li>Open Growpoints.</li>
+        <li>Open <strong>Habits</strong>, then <strong>Settings</strong>, then <strong>Account</strong>.</li>
+        <li>Select <strong>Delete account</strong> and confirm.</li>
+        <li>If requested, complete the recent Google authentication prompt.</li>
+      </ol>
+      <p class="note">In-app deletion removes the Firebase Authentication identity and local account binding. It keeps pet, action, Care, check-in, and growth progress on this device as guest data.</p>
+    </section>
+    <section aria-labelledby="request-without-app">
+      <h2 id="request-without-app">Request deletion without the app</h2>
+      <p>Email Growpoints support from the Google email connected to the account. Use the subject <strong>Growpoints account deletion request</strong>. Do not send passwords, identity documents, check-in details, or other sensitive information.</p>
+      <p><a class="action" href="mailto:playzpdcom@gmail.com?subject=Growpoints%20account%20deletion%20request">Request account deletion</a></p>
+      <p>PlayZPD may ask for a minimal ownership-verification step before deleting the Firebase Authentication identity.</p>
+    </section>
+    <section aria-labelledby="data-included">
+      <h2 id="data-included">Data included</h2>
+      <p>The request covers the Firebase Authentication identity used by Growpoints, including its Firebase user ID and available Google email, display name, profile-photo URL, and authentication metadata.</p>
+      <p>Growpoints does not store pet progress, actions, Care, or check-ins in Cloud Firestore or Firebase Cloud Storage.</p>
+    </section>
+    <section aria-labelledby="local-data">
+      <h2 id="local-data">Local data</h2>
+      <p>To remove local pet, action, Care, check-in, and progress data as well, clear Growpoints storage in Android settings or uninstall Growpoints.</p>
+      <p>Growpoints Analytics events are not linked by Growpoints to your Firebase user ID or email. Account deletion does not make those pseudonymous measurement events identifiable.</p>
+    </section>
+    <section aria-labelledby="timing">
+      <h2 id="timing">Timing and retention</h2>
+      <p>PlayZPD will process verified email requests within a reasonable period. Firebase states that deleted Authentication data is removed from live and backup systems within 180 days after deletion is initiated.</p>
+    </section>
+    <section aria-labelledby="privacy-policy">
+      <h2 id="privacy-policy">Privacy policy</h2>
+      <p>Read the <a href="https://playzpd.com/legal/growpoints-privacy/">Growpoints Privacy Policy</a>.</p>
+    </section>
+  </main>
+  <footer><div class="wrap">&copy; 2026 PlayZPD. Growpoints Account and Data Deletion.</div></footer>
+</body>
+</html>
