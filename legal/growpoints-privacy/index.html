@@ -274,7 +274,7 @@
         </div>
         <div>
           <strong>Optional Google sign-in</strong>
-          <span>Signing in attaches an identity without uploading local progress.</span>
+          <span>Protect and restore the same local progress with an optional cloud backup.</span>
         </div>
         <div>
           <strong>Limited analytics</strong>
@@ -296,38 +296,41 @@
     <section aria-labelledby="guest-mode">
       <h2 id="guest-mode">Guest mode and local progress</h2>
       <p>Growpoints works without an account. Your pet choices, actions, check-ins, Care, progress, reports, pause or archive state, reminders, and pet media are stored on your device.</p>
-      <p>Growpoints does not upload that progress when you sign in. Android backup and device-transfer backup are disabled for Growpoints.</p>
+      <p>Guest data is not uploaded. Android backup and device-transfer backup are disabled for Growpoints.</p>
     </section>
 
     <section aria-labelledby="google-sign-in">
-      <h2 id="google-sign-in">Optional Google sign-in</h2>
+      <h2 id="google-sign-in">Optional Google sign-in and cloud backup</h2>
       <p>If you choose <strong>Continue with Google</strong>, Growpoints uses Firebase Authentication. Firebase receives and stores a Firebase user ID and, when Google supplies them, your email address, display name, profile-photo URL, and authentication metadata.</p>
-      <p>Growpoints stores the same identity fields locally to show your account status. Signing in attaches that identity to the existing on-device profile; it does not upload, replace, or reset local pet, action, Care, check-in, or growth data.</p>
-      <p>Signing out removes the account binding from this device while leaving local progress available in guest mode.</p>
+      <p>Growpoints stores the same identity fields locally to show your account status. Signing in attaches that identity to the existing on-device profile; it does not create an empty replacement profile.</p>
+      <p>Growpoints compares local and cloud progress and asks before the first upload, restore, or conflict choice. It never silently merges or replaces different progress.</p>
+      <p>When you approve cloud protection, Growpoints stores a versioned backup in the Cloud Firestore <strong>nam5 (United States)</strong> multi-region. The backup includes pet quests and growth state; Build and Reduce action names, rules, cues, and reasons; check-in and other progress events; Care reports; pet memories; app settings; and onboarding state. Action text may describe personal routines, including health or fitness routines if you choose to enter them. Authentication identity fields are not copied into the backup payload.</p>
+      <p>After a backup is protected, later local changes are backed up to the same account. This is a recovery feature, not continuous real-time multi-device synchronization. Signing out removes the account binding from this device while leaving local progress available in guest mode.</p>
     </section>
 
     <section aria-labelledby="analytics">
       <h2 id="analytics">Analytics</h2>
       <p>Growpoints uses Google Analytics for Firebase to understand activation, feature use, and retention. The service automatically processes an app-instance identifier, a masked IP address used to derive approximate location, device and app information, screen and session activity, and app lifecycle events.</p>
-      <p>Growpoints also records a limited product funnel: onboarding completion, guest continuation, Google sign-in start, success, failure or cancellation, first Care, and completion of a Build or Reduce action.</p>
-      <p>These events do not include your Firebase user ID, email, name, photo, habit name, habit rule, Care total, or other free-form text. Advertising ID collection and ad-personalization signals are disabled. Growpoints does not set an Analytics User-ID.</p>
+      <p>Growpoints also records a limited product funnel: onboarding completion, guest continuation, account sign-in start, success, failure or cancellation, first Care, completion of a Build or Reduce action, the first successful progress backup, and successful progress restoration.</p>
+      <p>These events do not include your Firebase user ID, email, name, photo, habit name, habit rule, Care total, backup contents, or other free-form text. Advertising ID collection and ad-personalization signals are disabled. Growpoints does not set an Analytics User-ID.</p>
     </section>
 
     <section aria-labelledby="services-not-used">
       <h2 id="services-not-used">Services not used</h2>
-      <p>This release does not use Cloud Firestore, Firebase Cloud Storage, cloud progress synchronization, Firebase App Check, Crashlytics, advertising SDKs, payment SDKs, or AI services. Current pet media is bundled with the app or stored locally.</p>
+      <p>This release does not use Firebase Cloud Storage, Firebase App Check, Crashlytics, advertising SDKs, payment SDKs, AI services, or real-time cloud synchronization. Current pet media is bundled with the app or stored locally.</p>
     </section>
 
     <section aria-labelledby="use-and-sharing">
       <h2 id="use-and-sharing">Use and sharing</h2>
-      <p>Authentication data is used for sign-in and account management. Analytics data is used for product measurement and improvement. Google processes this data to provide Firebase Authentication and Google Analytics for Firebase under its applicable terms.</p>
+      <p>Authentication data is used for sign-in and account management. Cloud backup data is used only to protect and restore your progress. Analytics data is used for product measurement and improvement. Google processes this data as a service provider for Firebase and Analytics under its applicable terms.</p>
       <p>PlayZPD does not sell personal information and does not use the collected data for advertising.</p>
     </section>
 
     <section aria-labelledby="retention-deletion">
       <h2 id="retention-deletion">Retention and deletion</h2>
-      <p>Local progress remains on your device until you clear Growpoints storage or uninstall the app. Firebase Authentication keeps logged IP addresses for a few weeks and keeps other authentication information until the account is deleted. Google states that deleted Authentication data is removed from live and backup systems within 180 days.</p>
-      <p>In Growpoints, open <strong>Account</strong> and choose <strong>Delete account</strong>. The app deletes your Firebase Authentication identity and removes its local account binding. Local pet, action, Care, and progress data remains on the device as guest data unless you separately clear Growpoints storage or uninstall the app.</p>
+      <p>Local progress remains on your device until you clear Growpoints storage or uninstall the app. The current cloud backup remains while your Growpoints account exists. A successful replacement schedules older backup versions for deletion; an interrupted, incomplete, or superseded copy may remain until cleanup or account deletion.</p>
+      <p>Firebase Authentication keeps logged IP addresses for a few weeks and keeps other authentication information until the account is deleted. Google states that deleted Authentication data is removed from live and backup systems within 180 days.</p>
+      <p>In Growpoints, open <strong>Account</strong> and choose <strong>Delete account</strong>. After recent Google authentication, the app deletes every Growpoints cloud backup for that Firebase user ID, deletes the Firebase Authentication identity, and removes its local account binding. If cloud deletion fails, identity deletion does not proceed. Local pet, action, Care, and progress data remains on the device as guest data unless you separately clear Growpoints storage or uninstall the app.</p>
       <p>You can also request account deletion without the app through the public <a href="https://playzpd.com/legal/growpoints-account-deletion/">Growpoints account deletion page</a>.</p>
     </section>
 
@@ -343,7 +346,7 @@
 
     <section aria-labelledby="security">
       <h2 id="security">Security</h2>
-      <p>Growpoints minimizes collection, keeps progress local, disables app backup, and uses encrypted connections for Firebase services. No app can guarantee perfect security.</p>
+      <p>Growpoints minimizes collection, keeps Room as the local source of truth, disables Android system backup, and uses encrypted connections for Firebase services. Firestore rules isolate each backup by authenticated user ID, and Growpoints validates backup version, record counts, and a SHA-256 checksum before restore. No app can guarantee perfect security.</p>
     </section>
 
     <section aria-labelledby="changes-to-this-policy">

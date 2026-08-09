@@ -55,28 +55,28 @@
         <li>Select <strong>Delete account</strong> and confirm.</li>
         <li>If requested, complete the recent Google authentication prompt.</li>
       </ol>
-      <p class="note">In-app deletion removes the Firebase Authentication identity and local account binding. It keeps pet, action, Care, check-in, and growth progress on this device as guest data.</p>
+      <p class="note">In-app deletion first removes every Growpoints cloud backup for the account, then removes the Firebase Authentication identity and local account binding. It keeps pet, action, Care, check-in, and growth progress on this device as guest data.</p>
     </section>
     <section aria-labelledby="request-without-app">
       <h2 id="request-without-app">Request deletion without the app</h2>
       <p>Email Growpoints support from the Google email connected to the account. Use the subject <strong>Growpoints account deletion request</strong>. Do not send passwords, identity documents, check-in details, or other sensitive information.</p>
       <p>Contact: <a href="mailto:playzpdcom@gmail.com">playzpdcom@gmail.com</a></p>
       <p><a class="action" href="mailto:playzpdcom@gmail.com?subject=Growpoints%20account%20deletion%20request">Request account deletion</a></p>
-      <p>PlayZPD may ask for a minimal ownership-verification step before deleting the Firebase Authentication identity.</p>
+      <p>PlayZPD may ask for a minimal ownership-verification step before deleting the Firebase Authentication identity and its Growpoints cloud backup.</p>
     </section>
     <section aria-labelledby="data-included">
       <h2 id="data-included">Data included</h2>
       <p>The request covers the Firebase Authentication identity used by Growpoints, including its Firebase user ID and available Google email, display name, profile-photo URL, and authentication metadata.</p>
-      <p>Growpoints does not store pet progress, actions, Care, or check-ins in Cloud Firestore or Firebase Cloud Storage.</p>
+      <p>It also covers every Growpoints Cloud Firestore backup associated with that Firebase user ID, including backed-up pet progress, actions, check-ins, Care, reports, memories, settings, and onboarding state. Growpoints does not use Firebase Cloud Storage.</p>
     </section>
     <section aria-labelledby="local-data">
       <h2 id="local-data">Local data</h2>
-      <p>To remove local pet, action, Care, check-in, and progress data as well, clear Growpoints storage in Android settings or uninstall Growpoints.</p>
+      <p>In-app account deletion keeps on-device pet, action, Care, check-in, and progress data as guest data. This local copy is no longer associated with the deleted account. To remove it too, clear Growpoints storage in Android settings or uninstall Growpoints.</p>
       <p>Growpoints Analytics events are not linked by Growpoints to your Firebase user ID or email. Account deletion does not make those pseudonymous measurement events identifiable.</p>
     </section>
     <section aria-labelledby="timing">
       <h2 id="timing">Timing and retention</h2>
-      <p>PlayZPD will process verified email requests within a reasonable period. Firebase states that deleted Authentication data is removed from live and backup systems within 180 days after deletion is initiated.</p>
+      <p>PlayZPD will process verified email requests within a reasonable period. Cloud backup deletion is initiated before account deletion completes. Firebase states that deleted Authentication data is removed from live and backup systems within 180 days after deletion is initiated.</p>
     </section>
     <section aria-labelledby="privacy-policy">
       <h2 id="privacy-policy">Privacy policy</h2>
