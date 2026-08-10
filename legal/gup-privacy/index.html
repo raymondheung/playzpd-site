@@ -265,7 +265,7 @@
     <header class="policy-header">
       <p class="kicker">Privacy Policy</p>
       <h1>GUP Privacy Policy</h1>
-      <p class="updated">Effective date: July 5, 2026</p>
+      <p class="updated">Effective date: August 10, 2026</p>
 
       <div class="summary" aria-label="Current privacy summary">
         <div>
@@ -278,7 +278,7 @@
         </div>
         <div>
           <strong>Deletion available</strong>
-          <span>You can request account and associated app data deletion by email.</span>
+          <span>Delete your authentication account in the app or request help by email. Local GUP data remains on the device.</span>
         </div>
       </div>
     </header>
@@ -298,27 +298,27 @@
     <section aria-labelledby="intended-audience">
       <h2 id="intended-audience">Intended audience</h2>
       <p>GUP is intended for adults, educators, parents, guardians, coaches, and group leaders who use points and virtual pet progress to support groups, classes, habits, chores, routines, activities, or similar motivational systems.</p>
-      <p>GUP is not directed to children under 13. Children under 13 should not create accounts, use Google Sign-In, or submit personal information to GUP.</p>
-      <p>If you use GUP to track students, children, team members, or group members, you should use nicknames, initials, or non-identifying labels instead of full names or other identifying personal information.</p>
+      <p>GUP is not directed to children under 13. Children under 13 should not create an authentication account or submit personal information to GUP.</p>
+      <p>If you use GUP to track students, children, team members, or group members, initials remain the default. Adults may optionally enter a Name or Nickname and should avoid unnecessary identifying information.</p>
     </section>
 
     <section aria-labelledby="information-we-collect">
       <h2 id="information-we-collect">Information we collect</h2>
-      <p>Depending on the features you use, GUP may collect or process the following categories of information:</p>
+      <p>Depending on the features you use, GUP handles the following categories of information:</p>
       <ul>
-        <li>Account and login information, such as name, email address, Google profile identifier, login status, and authentication records.</li>
-        <li>Group and class information, such as group names, class names, labels, member labels, point records, activity records, and similar app content that you choose to enter.</li>
-        <li>App progress and settings, such as pet progress, point balances, app preferences, notification settings, feature status, and related app records.</li>
-        <li>Technical, diagnostic, and security information, such as device type, app version, error logs, crash or performance diagnostics, approximate timestamps, and information used to protect the service.</li>
-        <li>Future purchase or subscription status if optional Google Play in-app purchases, subscriptions, upgrades, or paid digital features are added.</li>
+        <li>Authentication information processed by Firebase Authentication, including an email address, Firebase user identifier, login status, and authentication records. Google Sign-In may also provide a Google profile identifier and account name.</li>
+        <li>Local app content, including optional custom Group names, Member initials, optional Member Names and Nicknames, pet progress, points, activity records, and app settings. GUP stores this content on the device and does not upload or sync it to PlayZPD or Firebase.</li>
+        <li>Basic technical and security information that Android, Google, or Firebase may process as necessary to provide and protect authentication and platform services.</li>
       </ul>
-      <p>GUP may use Google Sign-In. When you use Google Sign-In, Google may provide us with account information such as your name, email address, and Google profile identifier according to your Google account settings and the permissions shown to you.</p>
+      <p>When you register or sign in with Email/Password, Firebase Authentication processes the credentials. PlayZPD does not receive or store your plaintext password.</p>
+      <p>When you use Google Sign-In, Google and Firebase may process account information such as your name, email address, Google profile identifier, and authentication token according to your Google account settings and the permissions shown to you.</p>
+      <p>GUP 0.3.0 does not access the Advertising ID and does not include Analytics or log personal information as analytics events.</p>
       <p>If you email us for support, deletion, privacy questions, or other requests, we receive the email address and any information you choose to include in that message.</p>
     </section>
 
     <section aria-labelledby="how-we-use-information">
       <h2 id="how-we-use-information">How we use information</h2>
-      <p>We use information to provide, maintain, secure, and improve GUP. This includes creating and managing accounts, keeping users signed in, saving group or class records, recording points, showing pet progress, applying settings, responding to support or privacy requests, debugging technical issues, preventing abuse, and complying with legal obligations.</p>
+      <p>We use authentication information to create and manage authentication accounts, keep users signed in, secure the sign-in service, and respond to support or privacy requests. GUP uses local app content on your device to show groups, members, points, pet progress, and settings; authentication does not upload or sync that local content.</p>
       <p>Where required by law, we rely on appropriate legal bases such as providing the app and related services, your consent, our legitimate interests in operating and securing GUP, and compliance with legal obligations.</p>
     </section>
 
@@ -332,10 +332,11 @@
     <section aria-labelledby="data-sharing">
       <h2 id="data-sharing">Data sharing</h2>
       <p>We do not sell user data. We do not currently share personal information for personalized advertising.</p>
+      <p>GUP does not upload or share local Group names, Member initials, Names, Nicknames, pets, points, activity records, or settings.</p>
       <p>We may share information only as needed for the following purposes:</p>
       <ul>
-        <li>With service providers that help us operate GUP, such as authentication, hosting, database, storage, support, diagnostics, security, or similar technical services.</li>
-        <li>With Google when you use Google Sign-In, Google Play, Google Play Billing, Android, or other Google services connected to the app.</li>
+        <li>With Firebase Authentication and Google as needed to register, sign in, sign out, secure, or delete an authentication account.</li>
+        <li>With Google when you use Google Sign-In, Google Play, Android, or other Google services connected to the app.</li>
         <li>When required to comply with law, legal process, government requests, Google Play policies, or enforceable platform requirements.</li>
         <li>To protect the rights, safety, security, or integrity of PlayZPD, GUP, users, or others.</li>
         <li>In connection with a merger, acquisition, financing, reorganization, or transfer of relevant assets, subject to appropriate protections.</li>
@@ -344,15 +345,16 @@
 
     <section aria-labelledby="retention-and-deletion">
       <h2 id="retention-and-deletion">Retention and deletion</h2>
-      <p>We keep information for as long as reasonably needed to provide GUP, maintain your account and app records, support security, resolve disputes, comply with legal obligations, and enforce applicable terms or policies.</p>
-      <p>You can request deletion of your GUP account and associated app data by emailing <a href="mailto:playzpdcom@gmail.com">playzpdcom@gmail.com</a>. Please include the email address used for Google Sign-In or the account and use the subject line "GUP Account Deletion Request" if possible.</p>
+      <p>Firebase Authentication keeps authentication information as needed to maintain and secure your account. Local Group, Member, pet, points, progress, and settings data remains on your device.</p>
+      <p>You can delete the signed-in authentication account in GUP by opening <strong>Account</strong>, selecting <strong>Delete account</strong>, and confirming <strong>Delete account</strong>. You can also request help by emailing <a href="mailto:playzpdcom@gmail.com">playzpdcom@gmail.com</a> and including the email address used for Google Sign-In or Email/Password.</p>
+      <p>Deleting the authentication account does not delete local GUP content. It remains available for Guest/local use until you separately clear the app's data or uninstall the app.</p>
       <p>More information is available at <a href="https://playzpd.com/legal/gup-delete-account/">https://playzpd.com/legal/gup-delete-account/</a>.</p>
       <p>Some records may be retained only if required for legal, security, fraud-prevention, tax, accounting, dispute-resolution, or Google Play compliance reasons.</p>
     </section>
 
     <section aria-labelledby="childrens-privacy">
       <h2 id="childrens-privacy">Children's privacy</h2>
-      <p>GUP is not directed to children under 13, and children under 13 should not create accounts, use Google Sign-In, or submit personal information through the app.</p>
+      <p>GUP is not directed to children under 13, and children under 13 should not create an authentication account or submit personal information through the app.</p>
       <p>If you are an adult using GUP for a classroom, family, team, or group, do not enter personal information about children or group members unless you have the right to do so. Use nicknames, initials, or non-identifying labels whenever possible.</p>
       <p>If you believe a child under 13 has provided personal information to GUP, contact us at <a href="mailto:playzpdcom@gmail.com">playzpdcom@gmail.com</a> so we can review and take appropriate action.</p>
     </section>
